@@ -3,7 +3,16 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { TopButton } from "./components/TopButton";
 import { SideButton } from "./components/SideButton";
-
+import { TASA_Orbiter } from "next/font/google";
+import { Inter } from "next/font/google";
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+const tasaOrbiter = TASA_Orbiter({
+  variable: "--font-tasa-orbiter",
+  subsets: ["latin"],
+});
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -27,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${tasaOrbiter.variable} antialiased`}
       >
         <div className="flex min-h-screen items-center justify-center  relative font-sans bg-neutral-950 ">
           <div className="h-full w-full absolute bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_40%,rgba(0,0,0,0.3)_100%)]  ">

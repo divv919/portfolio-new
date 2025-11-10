@@ -1,6 +1,6 @@
 @import "tailwindcss";
-
-:root {
+/* @import url("https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@400..800&display=swap"); */
+root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -10,10 +10,32 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-tasa-orbiter: var(--font-tasa-orbiter);
+  --font-inter: var(--font-inter);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.gradient-button {
+  background: linear-gradient(
+    60deg,
+    rgb(38 38 38) 60%,
+    rgb(82 82 82) 100%,
+    rgb(38 38 38) 100%
+  );
+  animation: "shimmer 3s ease-in-out infinite";
+  /* box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.1); */
 }
