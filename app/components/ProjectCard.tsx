@@ -75,7 +75,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       whileHover={"hover"}
       animate={"rest"}
       initial={"rest"}
-      className="w-full aspect-video relative overflow-hidden rounded-md "
+      className="w-full aspect-2/1 relative overflow-hidden rounded-md "
     >
       <motion.div
         variants={parentVariant}
@@ -114,7 +114,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         className=""
         alt={"excali"}
         src={project.imageLink}
-        // objectFit="cover"
+        objectFit="cover"
         fill
       />
     </motion.div>

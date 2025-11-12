@@ -1,0 +1,26 @@
+"use client";
+import { MessageCircleCode } from "lucide-react";
+import { motion } from "motion/react";
+export default function Indicator() {
+  return (
+    <div className="h-13 w-60   absolute top-0 left-0 -translate-y-full overflow-hidden ">
+      <motion.div
+        animate={{ top: "50%" }}
+        whileHover={{ top: 0 }}
+        className="shadow-[inset_0_0_10px_rgba(255,255,255,0.2)] h-13 w-30 rounded-md rounded-b-none  bg-neutral-900/60  border-t border-neutral-800  absolute left-1/2 bottom-0 -translate-x-1/2 flex flex-col gap-1 p-[6px] text-xs select-none cursor-pointer"
+      >
+        <div className="flex gap-2 justify-center items-center text-neutral-500 tracking-tight ">
+          <span className="size-1 rounded-full bg-green-500"></span>
+          Open to work
+        </div>
+        <div className="flex gap-1  justify-center items-center text-neutral-500 tracking-tight ">
+          {/* <span className="size-1 rounded-full bg-green-500"></span> */}
+          <div className="flex justify-center items-center mb-[2px]">
+            <MessageCircleCode size={12} />
+          </div>
+          Contact me!
+        </div>
+      </motion.div>
+    </div>
+  );
+}

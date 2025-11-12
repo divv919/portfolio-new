@@ -138,6 +138,9 @@ import { usePathname, useRouter } from "next/navigation";
 import { cn } from "../lib/util";
 import { AnimatePresence, easeInOut, motion } from "motion/react";
 import ArrowOnHover from "./ArrowOnHover";
+import GlassUser from "./icons/glass/GlassUser";
+import GlassFeather from "./icons/glass/GlassFeather";
+import GlassFolder from "./icons/glass/GlassFolder";
 type AvailableButtons = "About" | "Blogs" | "Projects";
 export function SideButton() {
   const router = useRouter();
@@ -219,11 +222,14 @@ export function SideButton() {
             <motion.p>{btn}</motion.p>
             <motion.div className="relative w-5 h-5 flex items-center justify-center ">
               {btn === "About" ? (
-                <User height={20} width={20} />
+                // <User height={20} width={20} />
+                <GlassUser />
               ) : btn === "Blogs" ? (
-                <NotebookPen height={20} width={20} />
+                // <NotebookPen height={20} width={20} />
+                <GlassFeather />
               ) : (
-                <FolderGit height={20} width={20} />
+                // <FolderGit height={20} width={20} />
+                <GlassFolder />
               )}
               {/* <AnimatePresence> */}
 
