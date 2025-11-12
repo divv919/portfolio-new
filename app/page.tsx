@@ -1,35 +1,52 @@
-import { TopButton } from "./components/TopButton";
-import { SideButton } from "./components/SideButton";
 import Image from "next/image";
 import ArrowOnHover from "./components/ArrowOnHover";
+import { motion } from "motion/react";
+import NameTags from "./components/NameTags";
+
+type Skill = {
+  title: string;
+  link: string;
+};
 
 const skills = {
   frontend: [
-    "React",
-    "React Native",
-    "Next.js",
-    "TypeScript",
-    "JavaScript",
-    "Tailwind CSS",
-    "HTML",
-    "CSS",
-    "Jest",
-    "Webpack",
-    "Vite",
-  ],
+    { title: "React", link: "https://react.dev" },
+    { title: "React Native", link: "https://reactnative.dev" },
+    { title: "Next.js", link: "https://nextjs.org" },
+    { title: "TypeScript", link: "https://www.typescriptlang.org" },
+    {
+      title: "JavaScript",
+      link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    },
+    { title: "Tailwind CSS", link: "https://tailwindcss.com" },
+    {
+      title: "HTML",
+      link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    },
+    { title: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+    { title: "Jest", link: "https://jestjs.io" },
+    { title: "Motion", link: "https://motion.dev" },
+    // { title: "Tailwind", link: "https://tailwindcss.com" },
+  ] as Skill[],
   backend: [
-    "Node.js",
-    "Express",
-    "Python",
-    "REST API",
-    "GraphQL",
-    "AWS",
-    "Docker",
-    "Linux",
-    "CI/CD",
-    "Git",
-  ],
-  databases: ["MongoDB", "PostgreSQL", "SQL", "Redis"],
+    { title: "Node.js", link: "https://nodejs.org" },
+    { title: "Express", link: "https://expressjs.com" },
+    { title: "REST API", link: "https://restfulapi.net" },
+    { title: "AWS", link: "https://aws.amazon.com" },
+    { title: "Docker", link: "https://www.docker.com" },
+    { title: "Linux", link: "https://www.linux.org" },
+    {
+      title: "CI/CD",
+      link: "https://www.redhat.com/en/topics/devops/what-is-ci-cd",
+    },
+    { title: "Git", link: "https://git-scm.com" },
+  ] as Skill[],
+  databases: [
+    { title: "MongoDB", link: "https://www.mongodb.com" },
+    { title: "PostgreSQL", link: "https://www.postgresql.org" },
+    { title: "SQL", link: "https://www.w3schools.com/sql/" },
+    { title: "Redis", link: "https://redis.io" },
+  ] as Skill[],
 };
 
 export default function Home() {
@@ -37,14 +54,15 @@ export default function Home() {
     <div className="flex flex-col gap-10 text-neutral-50">
       {/* Header Section */}
       <div className="flex flex-col gap-6">
-        <h1 className="text-neutral-100 font-medium text-2xl tracking-tight font-inter">
-          Divyansh Swarnkar
-        </h1>
+        <div className="text-neutral-100 font-medium text-2xl tracking-tight font-inter flex gap-2">
+          Divyansh Swarnkar,
+          <NameTags />
+        </div>
         <div className="flex flex-col gap-3">
           <p className="text-neutral-400 text-md tracking-tight font-inter">
             Passionate builder, creating frontends, scalable backends and
-            services. Interested in UI/UX, AI Agent development, full-stack and
-            Devops.
+            services. Interested in UI/UX, GenAI and Agent development,
+            Full-stack and Devops.
           </p>
           <p className="text-neutral-400 text-md tracking-tight font-inter">
             My main priorities align with performance, deliverance and
@@ -66,12 +84,16 @@ export default function Home() {
           </h3>
           <div className="flex gap-2 flex-wrap">
             {skills.frontend.map((skill, index) => (
-              <span
+              <a
                 key={index}
+                href={skill.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={skill.title}
                 className="text-xs cursor-pointer ease-in-out text-neutral-300 w-fit px-3 py-1.5 border border-neutral-700 rounded-full tracking-tight bg-linear-60 from-transparent via-white/10  to-transparent bg-size-[200%_100%] bg-top-left hover:bg-bottom-right transition-all duration-200"
               >
-                {skill}
-              </span>
+                {skill.title}
+              </a>
             ))}
           </div>
         </div>
@@ -83,12 +105,16 @@ export default function Home() {
           </h3>
           <div className="flex gap-2 flex-wrap">
             {skills.backend.map((skill, index) => (
-              <span
+              <a
                 key={index}
+                href={skill.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={skill.title}
                 className="text-xs cursor-pointer ease-in-out text-neutral-300 w-fit px-3 py-1.5 border border-neutral-700 rounded-full tracking-tight bg-linear-60 from-transparent via-white/10  to-transparent bg-size-[200%_100%] bg-top-left hover:bg-bottom-right transition-all duration-200"
               >
-                {skill}
-              </span>
+                {skill.title}
+              </a>
             ))}
           </div>
         </div>
@@ -100,12 +126,16 @@ export default function Home() {
           </h3>
           <div className="flex gap-2 flex-wrap">
             {skills.databases.map((skill, index) => (
-              <span
+              <a
                 key={index}
+                href={skill.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={skill.title}
                 className="text-xs cursor-pointer ease-in-out text-neutral-300 w-fit px-3 py-1.5 border border-neutral-700 rounded-full tracking-tight bg-linear-60 from-transparent via-white/10  to-transparent bg-size-[200%_100%] bg-top-left hover:bg-bottom-right transition-all duration-200"
               >
-                {skill}
-              </span>
+                {skill.title}
+              </a>
             ))}
           </div>
         </div>
@@ -117,7 +147,7 @@ export default function Home() {
           Experience
         </h2>
         <div className="flex flex-col gap-1">
-          <ArrowOnHover>
+          <ArrowOnHover href="https://oddlyai.tech/">
             <div className="flex gap-2 items-center">
               <Image
                 alt="oddly-ai-logo"
@@ -146,7 +176,7 @@ export default function Home() {
         <div className="flex flex-col gap-2">
           <div className="text-md text-neutral-300 tracking-tight  font-inter flex gap-1">
             <span className="text-neutral-400">Mail me here </span>
-            <ArrowOnHover>
+            <ArrowOnHover href="mailto:divyanshsoni919@gmail.com">
               <span className="border-dotted border-neutral-600 cursor-pointer border-b hover:border-neutral-500 transition-colors duration-200">
                 divyanshsoni919@gmail.com
               </span>
@@ -154,7 +184,7 @@ export default function Home() {
           </div>
           <div className="text-md text-neutral-300 tracking-tight font-inter flex gap-1">
             <span className="text-neutral-400">Download my </span>
-            <ArrowOnHover>
+            <ArrowOnHover href="https://drive.google.com/file/d/1WauLDwLvvN83qLMuJ-UTR4bGYp1cSy8y/view?usp=sharing">
               <span className="border-dotted border-neutral-600 cursor-pointer border-b hover:border-neutral-500 transition-colors duration-200">
                 resume
               </span>

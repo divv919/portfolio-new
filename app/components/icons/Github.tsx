@@ -1,12 +1,12 @@
-export default function Github() {
+export default function Github({ size }: { size: number }) {
   return (
     <svg
       fill="#ffffff"
       viewBox="0 -0.5 25 25"
       xmlns="http://www.w3.org/2000/svg"
       stroke="#ffffff"
-      height={24}
-      width={24}
+      height={size}
+      width={size}
     >
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g

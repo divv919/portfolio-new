@@ -5,7 +5,7 @@ import Github from "./icons/Github";
 import X from "./icons/X";
 import Discord from "./icons/Discord";
 import { motion } from "motion/react";
-type ButtonName = keyof (typeof ButtonInfo)[number];
+type ButtonName = string;
 
 export default function Button({ name }: { name: ButtonName }) {
   const buttonVariant = {
@@ -48,7 +48,7 @@ export default function Button({ name }: { name: ButtonName }) {
           whileHover={"enter"}
           className="relative  backdrop-blur-3xl bg-neutral-900/70 duration-150 ease-in-out hover:scale-110 hover:-translate-y-0.5 shadow-inner shadow-white/20 hover:shadow-white/20 hover:bg-neutral-700/50 cursor-pointer text-neutral-400 rounded-sm rounded-b-none px-2 py-2 flex justify-center items-center"
         >
-          <Github />
+          <Github size={24} />
           <motion.div
             variants={barVarient}
             initial={{ height: 0 }}

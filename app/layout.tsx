@@ -38,6 +38,103 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${tasaOrbiter.variable} antialiased`}
       >
+        {/* Top masking effect with shadow and blur - smooth flow */}
+        <div className="fixed top-0 left-0 w-full h-40 z-50 pointer-events-none overflow-hidden">
+          {/* Base opacity gradient - smooth flow */}
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "linear-gradient(to bottom, rgba(23,23,23,0.75) 0%, rgba(38,38,38,0.2) 30%, rgba(64,64,64,0.06) 60%, transparent 100%)",
+            }}
+          ></div>
+          {/* Blur layers with smooth mask transitions for flowing blur effect */}
+          <div
+            className="absolute inset-0 backdrop-blur-[1px]"
+            style={{
+              maskImage:
+                "linear-gradient(to bottom, black 0%, black 8%, transparent 25%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to bottom, black 0%, black 8%, transparent 25%, transparent 100%)",
+            }}
+          ></div>
+          <div
+            className="absolute inset-0 backdrop-blur-[0.75px]"
+            style={{
+              maskImage:
+                "linear-gradient(to bottom, transparent 0%, black 8%, black 20%, transparent 45%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to bottom, transparent 0%, black 8%, black 20%, transparent 45%, transparent 100%)",
+            }}
+          ></div>
+          <div
+            className="absolute inset-0 backdrop-blur-[0.5px]"
+            style={{
+              maskImage:
+                "linear-gradient(to bottom, transparent 0%, transparent 20%, black 35%, transparent 65%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to bottom, transparent 0%, transparent 20%, black 35%, transparent 65%, transparent 100%)",
+            }}
+          ></div>
+          <div
+            className="absolute inset-0 backdrop-blur-[0.25px]"
+            style={{
+              maskImage:
+                "linear-gradient(to bottom, transparent 0%, transparent 35%, black 50%, transparent 80%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to bottom, transparent 0%, transparent 35%, black 50%, transparent 80%, transparent 100%)",
+            }}
+          ></div>
+        </div>
+
+        <div className="fixed bottom-0 left-0 w-full h-40 z-50 pointer-events-none overflow-hidden">
+          {/* Base opacity gradient - smooth flow */}
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "linear-gradient(to top, rgba(23,23,23,0.75) 0%, rgba(38,38,38,0.2) 30%, rgba(64,64,64,0.06) 60%, transparent 100%)",
+            }}
+          ></div>
+          {/* Blur layers with smooth mask transitions for flowing blur effect */}
+          <div
+            className="absolute inset-0 backdrop-blur-[1px]"
+            style={{
+              maskImage:
+                "linear-gradient(to top, black 0%, black 8%, transparent 25%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to top, black 0%, black 8%, transparent 25%, transparent 100%)",
+            }}
+          ></div>
+          <div
+            className="absolute inset-0 backdrop-blur-[0.75px]"
+            style={{
+              maskImage:
+                "linear-gradient(to top, transparent 0%, black 8%, black 20%, transparent 45%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to top, transparent 0%, black 8%, black 20%, transparent 45%, transparent 100%)",
+            }}
+          ></div>
+          <div
+            className="absolute inset-0 backdrop-blur-[0.5px]"
+            style={{
+              maskImage:
+                "linear-gradient(to top, transparent 0%, transparent 20%, black 35%, transparent 65%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to top, transparent 0%, transparent 20%, black 35%, transparent 65%, transparent 100%)",
+            }}
+          ></div>
+          <div
+            className="absolute inset-0 backdrop-blur-[0.25px]"
+            style={{
+              maskImage:
+                "linear-gradient(to top, transparent 0%, transparent 35%, black 50%, transparent 80%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to top, transparent 0%, transparent 35%, black 50%, transparent 80%, transparent 100%)",
+            }}
+          ></div>
+        </div>
+
         <div className="flex min-h-screen items-center justify-center  relative font-sans bg-neutral-950 ">
           <div className="h-full w-full absolute bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_40%,rgba(0,0,0,0.3)_100%)]  ">
             {/* <div className="h-full w-full bg-[url('/bg.jpg')] blur-xl opacity-5 saturate-30 "></div> */}
@@ -45,7 +142,15 @@ export default function RootLayout({
               <div className="w-full h-full bg-[repeating-linear-gradient(0deg,gray_0_2px,_transparent_1px_30px)] "></div>
             </div>
           </div>
-          <div className="w-[50%] flex flex-col gap-2 items-start shadow-white/5 shadow-inner relative bg-neutral-950 backdrop-blur-3xl justify-start min-h-screen my-30 p-10  border    border-dashed  border-neutral-800">
+          <div className="w-[50%] flex flex-col gap-2 items-start shadow-white/5 shadow-inner relative  bg-neutral-950 backdrop-blur-3xl justify-start min-h-screen my-30 p-10  border    border-dashed  border-neutral-800">
+            <div className="h-13 w-60   absolute top-0 left-0 -translate-y-full overflow-hidden ">
+              <div className="shadow-[inset_0_0_10px_rgba(255,255,255,0.2)] h-13 w-30 rounded-md rounded-b-none top-1/2 bg-neutral-900/60  border-t border-neutral-800  absolute left-1/2 bottom-0 -translate-x-1/2 flex flex-col p-1 text-xs">
+                <div className="flex gap-2 justify-center items-center text-neutral-500 tracking-tight">
+                  <span className="size-1 rounded-full bg-green-500"></span>
+                  Open to
+                </div>
+              </div>
+            </div>
             <TopButton />
             <SideButton />
             {children}
