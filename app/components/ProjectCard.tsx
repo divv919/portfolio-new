@@ -70,54 +70,63 @@ export default function ProjectCard({ project }: { project: Project }) {
     },
   };
   return (
-    <motion.div
-      variants={containerVariant}
-      whileHover={"hover"}
-      animate={"rest"}
-      initial={"rest"}
-      className="w-full aspect-2/1 relative overflow-hidden rounded-md "
-    >
+    <div className="flex flex-col gap-2">
       <motion.div
-        variants={parentVariant}
-        // animate={{
-        //     transition : {
-        //         type : "",
-        //         damping :
-        //     }
-        // }}
-        className=" w-full h-full bg-linear-to-b from-neutral-transparent via-neutral-950/70   to-neutral-950 z-1 bottom-0 absolute flex flex-col justify-end p-5 gap-2"
+        variants={containerVariant}
+        whileHover={"hover"}
+        animate={"rest"}
+        initial={"rest"}
+        className="w-full aspect-2/1 relative overflow-hidden rounded-md "
       >
         <motion.div
-          variants={titleVariant}
-          className="flex text-neutral-200  tracking-tight text-[20px] font-inter gap-4 items-center"
+          variants={parentVariant}
+          className=" w-full h-full bg-linear-to-b from-neutral-transparent via-neutral-950/70   to-neutral-950 z-1 bottom-0 absolute flex flex-col justify-end p-5 gap-0"
         >
-          <motion.div>{project.title}</motion.div>
-          <motion.div className="gap-2 flex items-center">
+          <motion.div
+            variants={titleVariant}
+            className="flex text-neutral-200  tracking-tight text-[20px] font-inter gap-4 items-center"
+          >
+            <motion.div>{project.title}</motion.div>
+            <motion.div className="gap-2 flex items-center">
+              <Link target="_blank" href={project.githubLink}>
+                <GithubIcon size={18} />
+              </Link>
+              <Link target="_blank" href={project.liveLink}>
+                <LinkIcon size={18} />
+              </Link>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            variants={descriptionVariant}
+            className="text-neutral-400 text-sm max-w-[70%]"
+          >
+            <DescriptionWithTags description={project.description} />
+          </motion.div>
+        </motion.div>
+
+        <Image
+          className=""
+          alt={"excali"}
+          src={project.imageLink}
+          objectFit="cover"
+          fill
+        />
+      </motion.div>
+      <div className="block md:hidden text-neutral-200">
+        <div className="flex gap-2">
+          <div>{project.title}</div>
+          <div className="flex items-center gap-2">
             <Link target="_blank" href={project.githubLink}>
               <GithubIcon size={18} />
             </Link>
             <Link target="_blank" href={project.liveLink}>
               <LinkIcon size={18} />
             </Link>
-          </motion.div>
-        </motion.div>
-        <motion.div
-          variants={descriptionVariant}
-          className="text-neutral-400 text-sm max-w-[70%]"
-        >
-          <DescriptionWithTags description={project.description} />
-          {/* {project.description} */}
-        </motion.div>
-      </motion.div>
-
-      <Image
-        className=""
-        alt={"excali"}
-        src={project.imageLink}
-        objectFit="cover"
-        fill
-      />
-    </motion.div>
+          </div>
+        </div>
+        <DescriptionWithTags description={project.description} />
+      </div>
+    </div>
   );
 }
 
@@ -135,7 +144,7 @@ const wordsToTag = [
 ];
 function DescriptionWithTags({ description }: { description: string }) {
   return (
-    <div className="flex gap-x-1 flex-wrap">
+    <div className="text-sm text-neutral-400 md:text-base  tracking-tight flex gap-x-1 flex-wrap">
       {description.split(" ").map((word, index) => {
         if (wordsToTag.includes(word)) {
           return (

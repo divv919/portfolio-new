@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 const tags: string[] = [
-  "Systems Thinker",
+  // "Systems Thinker",
   "Fast Learner",
   "Loves Building",
   "Self-Driven",
@@ -13,7 +13,7 @@ export default function NameTags() {
   const ref = useRef<null | NodeJS.Timeout>(null);
   useEffect(() => {
     ref.current = setInterval(
-      () => setCurrentIndex((p) => (p === 3 ? 0 : p + 1)),
+      () => setCurrentIndex((p) => (p === 2 ? 0 : p + 1)),
       4000
     );
     return () => {

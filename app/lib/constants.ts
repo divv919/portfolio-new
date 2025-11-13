@@ -1,5 +1,5 @@
 export const ButtonInfo = [
-  { name: "Discord", link: "https://www.discord.com" },
+  { name: "Discord", link: "http://discordapp.com/users/539384227012280341" },
   { name: "Github", link: "https://github.com/divv919" },
   { name: "X", link: "https://x.com/divv919" },
   {

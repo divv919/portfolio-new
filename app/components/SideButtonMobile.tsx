@@ -16,7 +16,7 @@ import GlassUser from "./icons/glass/GlassUser";
 import GlassFeather from "./icons/glass/GlassFeather";
 import GlassFolder from "./icons/glass/GlassFolder";
 type AvailableButtons = "About" | "Blogs" | "Projects";
-export function SideButton() {
+export function SideButtonMobile() {
   const router = useRouter();
   const path = usePathname();
   const [currentPage, setCurrentPage] = useState<AvailableButtons>(
@@ -64,7 +64,7 @@ export function SideButton() {
   };
 
   return (
-    <div className="hidden md:absolute md:flex flex-col gap-5 right-0 top-20 translate-x-full">
+    <div className=" fixed md:absolute md:hidden flex  gap-3 bottom-5 left-1/2 -translate-x-1/2 z-100 md:z-0  font-tasa-orbiter font-normal tracking-tight ">
       {sideButtonInfo.map((btn) => {
         const isActive = currentPage === btn;
         // const isHovered = currentHover === btn;
@@ -77,9 +77,8 @@ export function SideButton() {
             initial={"inactive"}
             key={btn}
             className={cn(
-              "w-fit bg-neutral-900/80 relative  transition-all duration-200 ease-in-out  overflow-hidden backdrop-blur-3xl flex gap-2 cursor-pointer items-center tracking-tight border-neutral-800 border rounded-sm rounded-l-none text-neutral-50 px-3 py-2",
-              isActive &&
-                "bg-neutral-700/40 border border-neutral-700 border-l-0",
+              "w-fit bg-neutral-900/80 relative shadow-[2px_2px_20px_rgba(0,0,0,0.5)]  transition-all duration-200 ease-in-out  overflow-hidden backdrop-blur-3xl flex gap-2 cursor-pointer items-center tracking-tight border-neutral-800 border rounded-sm  text-neutral-50 px-3 py-2",
+              isActive && "bg-neutral-700/40 border border-neutral-700 ",
               !isActive && "hover:pr-8"
             )}
             // transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -89,21 +88,28 @@ export function SideButton() {
             {isActive && (
               <motion.div
                 layout
-                layoutId="sidebutton-active"
-                className="absolute opacity-70 left-0 -translate-x-1/2 w-[6px] h-6 bg-linear-to-b from-neutral-300 to-neutral-500 rounded-sm"
+                layoutId="sidebutton-mobile-active"
+                className="absolute opacity-70 left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2 h-[6px] w-6 bg-linear-to-b from-neutral-300 to-neutral-500 rounded-sm"
               />
             )}
-
-            <motion.p>{btn}</motion.p>
-
+            <motion.p className="font-medium">{btn}</motion.p>
             <motion.div className="relative w-5 h-5 flex items-center justify-center ">
               {btn === "About" ? (
-                <GlassUser />
-              ) : btn === "Blogs" ? (
+                <>
+                  {" "}
+                  <GlassUser />
+                </>
+              ) : // <User height={20} width={20} />
+              btn === "Blogs" ? (
+                // <NotebookPen height={20} width={20} />
                 <GlassFeather />
               ) : (
+                // <FolderGit height={20} width={20} />
                 <GlassFolder />
               )}
+              {/* <AnimatePresence> */}
+
+              {/* </AnimatePresence> */}
             </motion.div>
             {!isActive && (
               <motion.div

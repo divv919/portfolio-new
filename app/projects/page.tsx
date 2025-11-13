@@ -4,8 +4,8 @@ import { projects } from "../lib/constants";
 
 export default function Projects() {
   return (
-    <div className="w-full p-5 pt-0 flex flex-col gap-8">
-      <h3 className="text-md text-neutral-300 border-b-2 w-fit border-dashed border-neutral-700 font-inter tracking-tight title">
+    <div className="w-full p-0 md:p-3 md:pt-0 flex flex-col gap-8">
+      <h3 className="text-md text-neutral-300 border-b-2 w-fit border-dashed border-neutral-700 font-inter font-medium tracking-tight title">
         Fullstack Projects
       </h3>
       <Suspense

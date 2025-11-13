@@ -5,20 +5,21 @@ import { skills } from "./lib/constants";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-10 text-neutral-50">
+    <div className="flex flex-col gap-8 md:gap-10 text-neutral-50">
       {/* Header Section */}
-      <div className="flex flex-col gap-6">
-        <div className="text-neutral-100 font-medium text-2xl tracking-tight font-inter flex gap-2">
+      <div className="flex flex-col gap-2 md:gap-6">
+        <div className="text-neutral-100 font-medium text-xl md:text-2xl tracking-tight font-tasa-orbiter flex gap-2">
           Divyansh Swarnkar,
           <NameTags />
+          {/* <GlassUser /> */}
         </div>
-        <div className="flex flex-col gap-3">
-          <p className="text-neutral-400 text-md tracking-tight font-inter">
+        <div className="text-neutral-400/90 md:text-neutral-400   md:tracking-tight font-inter flex flex-col gap-2 md:gap-3 text-[15px] md:text-md  leading-[1.3]">
+          <p>
             Passionate builder, creating frontends, scalable backends and
             services. Interested in UI/UX, GenAI and Agent development,
             Full-stack and Devops.
           </p>
-          <p className="text-neutral-400 text-md tracking-tight font-inter">
+          <p>
             My main priorities align with performance, deliverance and
             perfection.
           </p>

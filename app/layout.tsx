@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, TASA_Orbiter, Inter } from "next/font/google";
 import "./globals.css";
 import { TopButton } from "./components/TopButton";
 import { SideButton } from "./components/SideButton";
-import { TASA_Orbiter } from "next/font/google";
-import { Inter } from "next/font/google";
 import TopBottomMasks from "./components/TopBottomMasks";
 import Indicator from "./components/Indicator";
+import { SideButtonMobile } from "./components/SideButtonMobile";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -14,7 +13,10 @@ const inter = Inter({
 const tasaOrbiter = TASA_Orbiter({
   variable: "--font-tasa-orbiter",
   subsets: ["latin"],
+  // weight: ["400", "500", "600", "700", "800"],
+  display: "swap", // Add display option
 });
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -38,10 +40,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${tasaOrbiter.variable} antialiased selection:bg-neutral-200 selection:text-neutral-950`}
+        className={`${geistSans.variable} ${geistMono.variable} ${tasaOrbiter.variable} ${inter.variable} antialiased selection:bg-neutral-200 selection:text-neutral-950`}
       >
         {/* Top masking effect with shadow and blur - smooth flow */}
-        <div className="min-h-screen w-full bg-neutral-950 relative ">
+        <div className=" min-h-screen w-full bg-neutral-950 relative ">
           {/*  Diagonal Cross Top Right Fade Grid Background */}
           <div className="absolute inset-0 bg-radial from-transparent to-neutral-950 z-0 ">
             <div
@@ -60,19 +62,19 @@ export default function RootLayout({
             />
           </div>
           {/* Your Content/Components */}
-
+          <SideButtonMobile />
           <TopBottomMasks />
-          <div className="flex min-h-screen items-center justify-center max-w-[2000px] mx-auto   relative font-sans bg-transparent ">
+          <div className="flex  min-h-screen items-center justify-center max-w-[2000px] mx-auto   relative font-sans bg-transparent ">
             {/* <div className="h-full w-full absolute bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_40%,rgba(0,0,0,0.3)_100%)]  ">
             <div className="w-full h-full bg-[repeating-linear-gradient(90deg,gray_0_2px,_transparent_1px_30px)] opacity-5  ">
               <div className="w-full h-full bg-[repeating-linear-gradient(0deg,gray_0_2px,_transparent_1px_30px)] "></div>
             </div>
           </div> */}
 
-            <div className="xl:w-[50%] md:w-[65%] lg:w-[60%]  flex flex-col gap-2 items-start shadow-white/5 shadow-inner relative  bg-neutral-950 backdrop-blur-3xl justify-start min-h-screen my-30 p-10  border    border-dashed  border-neutral-800">
+            <div className="w-full xl:w-[50%] md:w-[65%] lg:w-[60%]  flex flex-col gap-2 items-start shadow-white/5 shadow-inner relative  bg-neutral-950 backdrop-blur-3xl justify-start min-h-screen my-30 p-10  border    border-dashed  border-neutral-800">
+              <SideButton />
               <Indicator />
               <TopButton />
-              <SideButton />
               {children}
             </div>
           </div>

@@ -23,8 +23,12 @@ export default function Button({ name }: { name: ButtonName }) {
         <motion.div
           variants={buttonVariant}
           whileHover={"enter"}
+          whileTap={"enter"}
           className="relative backdrop-blur-2xl bg-neutral-900/70 duration-150 ease-in-out hover:scale-110 hover:-translate-y-0.5 shadow-inner shadow-white/20 hover:shadow-white/20 hover:bg-neutral-700/50 cursor-pointer text-neutral-400 rounded-sm rounded-b-none px-2 py-2 flex justify-center items-center"
-          style={{ backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)' }}
+          style={{
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
+          }}
         >
           <Discord />
           <motion.div
@@ -48,7 +52,10 @@ export default function Button({ name }: { name: ButtonName }) {
           variants={buttonVariant}
           whileHover={"enter"}
           className="relative backdrop-blur-3xl bg-neutral-900/70 duration-150 ease-in-out hover:scale-110 hover:-translate-y-0.5 shadow-inner shadow-white/20 hover:shadow-white/20 hover:bg-neutral-700/50 cursor-pointer text-neutral-400 rounded-sm rounded-b-none px-2 py-2 flex justify-center items-center"
-          style={{ backdropFilter: 'blur(40px)', WebkitBackdropFilter: 'blur(40px)' }}
+          style={{
+            backdropFilter: "blur(40px)",
+            WebkitBackdropFilter: "blur(40px)",
+          }}
         >
           <Github size={24} />
           <motion.div
@@ -72,7 +79,10 @@ export default function Button({ name }: { name: ButtonName }) {
           variants={buttonVariant}
           whileHover={"enter"}
           className="relative backdrop-blur-3xl bg-neutral-900/70 duration-150 ease-in-out hover:scale-110 hover:-translate-y-0.5 shadow-inner shadow-white/20 hover:shadow-white/20 hover:bg-neutral-700/50 cursor-pointer text-neutral-400 rounded-sm rounded-b-none px-2 py-2 flex justify-center items-center"
-          style={{ backdropFilter: 'blur(40px)', WebkitBackdropFilter: 'blur(40px)' }}
+          style={{
+            backdropFilter: "blur(40px)",
+            WebkitBackdropFilter: "blur(40px)",
+          }}
         >
           <X />
           <motion.div
@@ -96,7 +106,10 @@ export default function Button({ name }: { name: ButtonName }) {
           variants={buttonVariant}
           whileHover={"enter"}
           className="relative backdrop-blur-3xl bg-neutral-900/70 duration-150 ease-in-out hover:scale-110 hover:-translate-y-0.5 shadow-inner shadow-white/20 hover:shadow-white/20 hover:bg-neutral-700/50 cursor-pointer text-neutral-400 rounded-sm rounded-b-none px-2 py-2 flex justify-center items-center"
-          style={{ backdropFilter: 'blur(40px)', WebkitBackdropFilter: 'blur(40px)' }}
+          style={{
+            backdropFilter: "blur(40px)",
+            WebkitBackdropFilter: "blur(40px)",
+          }}
         >
           <Linkedin />
           <motion.div

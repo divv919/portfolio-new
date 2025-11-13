@@ -4,11 +4,11 @@ import ArrowOnHover from "../components/ArrowOnHover";
 export default function Blogs() {
   return (
     <div className="flex flex-col text-md gap-9 w-full tracking-tight ">
-      <div className="w-full h-75 relative">
+      <div className="w-full aspect-video lg:aspect-2/1 relative">
         <Image alt="bg" fill src="/aesthetic.jpg" />
       </div>{" "}
       <div className="flex flex-col gap-2">
-        <div className="text-neutral-300 ">
+        <div className="text-neutral-300 leading-5">
           This section will be updated when i start writing blogs :)
         </div>
         <div className="text-neutral-400 flex gap-2">
