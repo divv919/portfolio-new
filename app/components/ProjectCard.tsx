@@ -5,7 +5,7 @@ import Link from "next/link";
 interface Project {
   title: string;
   description: string;
-  githubLink: string;
+  githubLink?: string;
   liveLink: string;
   imageLink: string;
 }
