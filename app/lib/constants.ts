@@ -10,6 +10,14 @@ export const ButtonInfo = [
 
 export const projects = [
   {
+    title: "Beautiful Components",
+    description:
+      "A collection (showcase) of all the animated components I have built so far (Ongoing)",
+    liveLink: "http://beautiful-components.divyanshh.tech/",
+    // githubLink: "https://github.com/divv919/components-practice",
+    imageLink: "/BeautifulComponents.png",
+  },
+  {
     title: "DrawSpace",
     description:
       "Real time and collaborative drawing board as well as shapes functionalities, built using Typescript , Websockets , Next.js and Express",

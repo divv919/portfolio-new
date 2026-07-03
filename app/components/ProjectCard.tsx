@@ -85,7 +85,7 @@ export default function ProjectCard({ project }: { project: Project }) {
     },
   };
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-3">
       <motion.div
         variants={containerVariant}
         whileHover={"hover"}
@@ -101,11 +101,20 @@ export default function ProjectCard({ project }: { project: Project }) {
             variants={titleVariant}
             className="flex text-neutral-200  tracking-tight text-[17px] font-inter gap-4 items-center"
           >
-            <motion.div>{project.title}</motion.div>
+            <motion.div className="flex gap-2 items-center">
+              {project.title === "Beautiful Components" && (
+                <div className="rounded-full px-2 text-xs bg-red-500/20 py-1">
+                  Ongoing
+                </div>
+              )}
+              {project.title}
+            </motion.div>
             <motion.div className="gap-2 flex items-center">
-              <Link target="_blank" href={project.githubLink}>
-                <GithubIcon size={18} />
-              </Link>
+              {project.githubLink && (
+                <Link target="_blank" href={project?.githubLink}>
+                  <GithubIcon size={18} />
+                </Link>
+              )}
               {project.liveLink.length > 0 && (
                 <Link target="_blank" href={project.liveLink}>
                   <LinkIcon size={18} />
@@ -131,11 +140,20 @@ export default function ProjectCard({ project }: { project: Project }) {
       </motion.div>
       <div className="block md:hidden text-neutral-200">
         <div className="flex gap-2">
-          <div>{project.title}</div>
+          <motion.div className="flex gap-2 items-center">
+            {project.title === "Beautiful Components" && (
+              <div className="rounded-full px-2 text-xs bg-red-500/20 py-1">
+                Ongoing
+              </div>
+            )}
+            {project.title}
+          </motion.div>
           <div className="flex items-center gap-2">
-            <Link target="_blank" href={project.githubLink}>
-              <GithubIcon size={18} />
-            </Link>
+            {project.githubLink && (
+              <Link target="_blank" href={project.githubLink}>
+                <GithubIcon size={18} />
+              </Link>
+            )}
             <Link target="_blank" href={project.liveLink}>
               <LinkIcon size={18} />
             </Link>
